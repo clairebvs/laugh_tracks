@@ -1,13 +1,18 @@
-<section id='comedians'>
+<section class='comedians'>
 
-  <h1>Comedians</h1>
+  <h1>Comedians and </h1>
 
   <% @comedians.each do |comedian| %>
+
   <ul>
-     <li><%= comedian.name %></li>
-     <li><%= comedian.age %></li>
+     <li>Name : <%= comedian.name. %></li>
+     <li>Age :<%= comedian.age %></li>
+
+     <% @specials.each do |special| %>
+     <li>Special Name : <%= special.name %></li>
+     <li>Comedian Id :<%= special.comedian_id %></li>
   </ul>
   <% end %>
-
+  <% end %>
 
 </section>

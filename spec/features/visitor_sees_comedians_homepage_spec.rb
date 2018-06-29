@@ -11,9 +11,23 @@ RSpec.describe 'a visitor' do
 
       visit '/comedians'
 
-      within('#comedians') do
+      within('.comedians') do
         expect(page).to have_content('Comedians')
+        # expect(page).to have_content('Name')
+        # expect(page).to have_content('Age')
       end
     end
+#     As a visitor,
+# When I visit `/comedians`
+# Then I also see a list of each comedian's specials.
+
+    it 'should see a list of comedians specials' do
+      visit '/comedians'
+
+      within('.comedians') do
+        expect(page).to have_content('Specials')
+      end
+    end
+
   end
 end
