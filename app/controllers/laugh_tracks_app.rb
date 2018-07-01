@@ -1,8 +1,8 @@
 class LaughTracksApp < Sinatra::Base
 
   get '/comedians' do
-    if params[:age].where(age: params[:age]).includes(:specials)
-      @comedians = Comedian
+    if params[:age]
+      @comedians = Comedian.where(age: params[:age]).includes(:specials)
     else
       @comedians = Comedian.all.includes(:specials)
     end
