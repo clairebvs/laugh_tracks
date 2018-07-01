@@ -30,4 +30,14 @@ RSpec.describe 'a user visit comedian index page' do
       expect(page).to have_content("Average age: #{expected_result}")
     end
 
+    it 'should show the same data for comedian age' do
+      comedian_1 = Comedian.create(name: "Elie", age: 34)
+      comedian_2 = Comedian.create(name: "Maya", age: 22)
+
+      visit '/comedians?age=34'
+
+      expect(page).to have_content(comedian_1.name)
+      expect(page).to_not have_content(comedian_2.name)
+    end
+
 end
