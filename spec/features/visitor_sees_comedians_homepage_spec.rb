@@ -2,7 +2,7 @@ RSpec.describe 'a user visit comedian index page' do
   context 'visitor' do
     it 'should see a list of comedians including name and age' do
       comedian_1 = Comedian.create(name: "Elie", age: 32)
-      comedian_2 = Comedian.create(name: "Maya", age: 21)
+      comedian_2 = Comedian.create(name: "Maya", age: 22)
 
       visit '/comedians'
 
@@ -20,5 +20,14 @@ RSpec.describe 'a user visit comedian index page' do
       visit '/comedians'
       expect(page).to have_content(special_1.name)
       end
+
+    it 'should see the average age of all comedian' do
+      comedian_1 = Comedian.create(name: "Elie", age: 32)
+      comedian_2 = Comedian.create(name: "Maya", age: 22)
+      expected_result = 27
+
+      visit '/comedians'
+      expect(page).to have_content("Average age: #{expected_result}")
+    end
 
 end

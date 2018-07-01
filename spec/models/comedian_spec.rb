@@ -12,4 +12,13 @@ RSpec.describe Comedian do
       end
     end
   end
+  describe 'Class Methods' do
+    it 'knows about average age of comedians' do
+      comedian_1 = Comedian.create(name: "Elie", age: 32)
+      comedian_2 = Comedian.create(name: "Maya", age: 22)
+      expected_result = 27
+
+      expect(Comedian.average_age).to eq(expected_result)
+    end
+  end
 end
