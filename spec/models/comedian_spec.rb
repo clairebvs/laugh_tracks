@@ -21,4 +21,16 @@ RSpec.describe Comedian do
       expect(Comedian.average_age).to eq(expected_result)
     end
   end
+
+  describe 'Instance Methods' do
+    it 'count comedian specials' do
+      comedian_1 = Comedian.create(name: "Elie", age: 32)
+      special_1 = comedian_1.specials.create(name: 'Galgap')
+      special_2 = comedian_1.specials.create(name: 'Mamash')
+
+      expected_result = 2
+
+      expect(comedian_1.count_specials).to eq(expected_result)
+    end
+  end
 end

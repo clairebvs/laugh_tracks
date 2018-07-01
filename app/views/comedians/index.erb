@@ -10,8 +10,9 @@
     <% comedian.specials.each do |special| %>
     <p> <%= special.name %> </p>
   <% end %>
+  <p> Count of specials: <%= comedian.count_specials %> </p>
 </div>
 <% end %>
-<p> Average age: <%= @average_age %></p> 
+<p> Average age: <%= @average_age %></p>
 </body>
 </html>

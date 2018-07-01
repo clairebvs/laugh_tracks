@@ -40,4 +40,16 @@ RSpec.describe 'a user visit comedian index page' do
       expect(page).to_not have_content(comedian_2.name)
     end
 
+    it 'should show the count of specials for each comedian' do
+      comedian_1 = Comedian.create(name: "Elie", age: 34)
+      special_1 = comedian_1.specials.create(name: 'Patpo')
+      special_2 = comedian_1.specials.create(name: 'Napa show')
+
+      expected_result = 2
+
+      visit '/comedians'
+
+      expect(page).to have_content("Count of specials: #{expected_result}")
+    end
+
 end
