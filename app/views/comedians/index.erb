@@ -1,12 +1,16 @@
 <html>
 <body>
-<div class='comedians'>
   <h1>Comedians</h1>
   <% @comedians.each do |comedian| %>
+  <div>
   <ul>
      <li>Name: <%= comedian.name %></li>
      <li>Age: <%= comedian.age %></li>
   </ul>
+    <% comedian.specials.each do |special| %>
+    <p> <%= special.name %> </p>
   <% end %>
-
 </div>
+<% end %>
+</body>
+</html>
